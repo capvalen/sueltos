@@ -1,0 +1,122 @@
+add_shortcode( 'formulario_Frontal', function () {
+?>
+<style>
+#btnBuscarFrontal{
+	border-radius: 15px;
+	font-weight: bold;
+	background-color: #d20b0b;
+	border: none!important;
+}
+.card{
+	background-color: #ffffff0f; border: 1px solid #ffffff61;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+</style>
+	<div class="card">
+		<div class="card-body">
+			<div id="formularioFrontal">
+				<div class="row ">
+					<div class="col-sm-12 col-md-2">
+						<select name="" id="sltInicio" class="form-control">
+							<option value="-1">Origen de servicio</option>
+							<option value="1">Amazonas</option>
+							<option value="2">Áncash</option>
+							<option value="3">Apurímac</option>
+							<option value="4">Arequipa</option>
+							<option value="5">Ayacucho</option>
+							<option value="6">Cajamarca</option>
+							<option value="7">Callao</option>
+							<option value="8">Cusco</option>
+							<option value="9">Huancavelica</option>
+							<option value="10">Huánuco</option>
+							<option value="11">Ica</option>
+							<option value="12">Junín</option>
+							<option value="13">La Libertad</option>
+							<option value="14">Lambayeque</option>
+							<option value="15">Lima</option>
+							<option value="16">Loreto</option>
+							<option value="17">Madre de Dios</option>
+							<option value="18">Moquegua</option>
+							<option value="19">Pasco</option>
+							<option value="20">Piura</option>
+							<option value="21">Puno</option>
+							<option value="22">San Martín</option>
+							<option value="23">Tacna</option>
+							<option value="24">Tumbes</option>
+							<option value="25">Ucayali</option>
+						</select>
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<select name="" id="sltFin" class="form-control">
+							<option value="-1">Destino final de servicio</option>
+							<option value="1">Amazonas</option>
+							<option value="2">Áncash</option>
+							<option value="3">Apurímac</option>
+							<option value="4">Arequipa</option>
+							<option value="5">Ayacucho</option>
+							<option value="6">Cajamarca</option>
+							<option value="7">Callao</option>
+							<option value="8">Cusco</option>
+							<option value="9">Huancavelica</option>
+							<option value="10">Huánuco</option>
+							<option value="11">Ica</option>
+							<option value="12">Junín</option>
+							<option value="13">La Libertad</option>
+							<option value="14">Lambayeque</option>
+							<option value="15">Lima</option>
+							<option value="16">Loreto</option>
+							<option value="17">Madre de Dios</option>
+							<option value="18">Moquegua</option>
+							<option value="19">Pasco</option>
+							<option value="20">Piura</option>
+							<option value="21">Puno</option>
+							<option value="22">San Martín</option>
+							<option value="23">Tacna</option>
+							<option value="24">Tumbes</option>
+							<option value="25">Ucayali</option>
+						</select>
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<input type="date" class="form-control" id="dtpFechaInicio">
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<input type="date" class="form-control" id="dtpFechaFin">
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<select name="" class="form-control" id="sltTipoVehiculo">
+							<option value="-1">Tipo de Venhículo</option>
+							<option value="servicio-conductor">Servicio conductor</option>
+							<option value="servicio-logistico">Servicio logístico</option>
+							<option value="transporte-personal">Transporte personal</option>
+							<option value="turismo">Turismo</option>
+							<option value="unidades-livianas">Unidades livianas</option>
+							<option value="unidades-pesadas">Unidades pesadas</option>
+						</select>
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<button class="btn btn-primary border-3" id="btnBuscarFrontal" onclick="visitarModelo()"> <i aria-hidden="true" class=" icofont icofont-search" ></i> Buscar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		dtpFechaInicio = document.getElementById('dtpFechaInicio')
+		dtpFechaFin = document.getElementById('dtpFechaFin')
+		
+		const hoy = new Date();
+		const anio = hoy.getFullYear();
+		const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month, so we need to add 1
+		const dia = String(hoy.getDate()).padStart(2, '0');
+		dtpFechaInicio.value = `${anio}-${mes}-${dia}`;
+		dtpFechaFin.value = `${anio}-${mes}-${dia}`;
+		function visitarModelo(){
+			console.log('visitar');
+			if( document.getElementById('sltTipoVehiculo').value!=-1){
+				window.location.href = "https://andraderents.com/coincidencias/?filtro=" + document.getElementById('sltTipoVehiculo').value
+			}
+		}
+	</script>
+	<?php
+	});
+	
