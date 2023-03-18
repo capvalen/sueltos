@@ -11,14 +11,21 @@ add_shortcode( 'formulario_Frontal', function () {
 	background-color: #ffffff0f; border: 1px solid #ffffff61;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+label{color:white}
+@media (max-width: 767px) {
+	label{color:rgb(88, 88, 88); width: 100%;}
+  
+}
+
 </style>
 	<div class="card">
 		<div class="card-body">
 			<div id="formularioFrontal">
 				<div class="row ">
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1">
+						<label class="mb-0 " for="">Origen del servicio</label>
 						<select name="" id="sltInicio" class="form-control">
-							<option value="-1">Origen de servicio</option>
+							<option value="-1">Departamento</option>
 							<option value="1">Amazonas</option>
 							<option value="2">Áncash</option>
 							<option value="3">Apurímac</option>
@@ -46,9 +53,10 @@ add_shortcode( 'formulario_Frontal', function () {
 							<option value="25">Ucayali</option>
 						</select>
 					</div>
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1">
+						<label class="mb-0 " for="">Destino final</label>
 						<select name="" id="sltFin" class="form-control">
-							<option value="-1">Destino final de servicio</option>
+							<option value="-1">Departamento</option>
 							<option value="1">Amazonas</option>
 							<option value="2">Áncash</option>
 							<option value="3">Apurímac</option>
@@ -76,15 +84,18 @@ add_shortcode( 'formulario_Frontal', function () {
 							<option value="25">Ucayali</option>
 						</select>
 					</div>
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1">
+						<label class="mb-0 " for="">Fecha de inicio</label>
 						<input type="date" class="form-control" id="dtpFechaInicio">
 					</div>
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1">
+						<label class="mb-0 " for="">Fecha final</label>
 						<input type="date" class="form-control" id="dtpFechaFin">
 					</div>
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1">
+						<label class="mb-0 " for="">Tipo de Vehículo</label>
 						<select name="" class="form-control" id="sltTipoVehiculo">
-							<option value="-1">Tipo de Venhículo</option>
+							<option value="-1">Venhículo</option>
 							<option value="servicio-conductor">Servicio conductor</option>
 							<option value="servicio-logistico">Servicio logístico</option>
 							<option value="transporte-personal">Transporte personal</option>
@@ -93,7 +104,7 @@ add_shortcode( 'formulario_Frontal', function () {
 							<option value="unidades-pesadas">Unidades pesadas</option>
 						</select>
 					</div>
-					<div class="col-sm-12 col-md-2">
+					<div class="col-sm-12 col-md-2 my-1 d-flex align-items-end">
 						<button class="btn btn-primary border-3" id="btnBuscarFrontal" onclick="visitarModelo()"> <i aria-hidden="true" class=" icofont icofont-search" ></i> Buscar</button>
 					</div>
 				</div>
