@@ -1,0 +1,61 @@
+	<div>
+		<input id="txtMultiplica" value='1'>
+		<label for="txtMultiplica">Para <span id="spanIgual"></span> m² necesitarás <span id="spanCajas">0</span> caja<span id="ese"></span></label>
+	</div>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+
+		const txtMetros = document.getElementById('txtMultiplica'); 
+		const spanIgual = document.getElementById('spanIgual');
+		const spanCajas = document.getElementById('spanCajas');
+		const txtMultiplicador = document.querySelector('#multiplicador .elementor-widget-container'); 
+		const input = document.querySelector('.quantity .qty');
+		const ese = document.querySelector('#ese');
+
+		const calcular = (event)=>{
+			let multiplicador = parseFloat(txtMultiplicador.innerText ?? 1)
+			let metros = parseFloat(txtMetros.value ?? 0)
+
+			var cajas = 0
+
+			if(metros != ''){
+				cajas = multiplicador * metros
+			}
+			spanIgual.innerText = metros.toFixed(2)
+			spanCajas.innerText = cajas.toFixed(2)
+			input.value = cajas.toFixed(2)
+			if( cajas == 1) ese.innerText = ''
+			else ese.innerText ='s'
+		}
+
+		const calcularRetro= (event)=>{
+			let cajas = event.target.value
+			let multiplicador = parseFloat(txtMultiplicador.innerText ?? 1)
+			let metros =0
+
+			if(cajas != ''){
+				metros = cajas / multiplicador
+			}
+
+			txtMultiplica.value = metros.toFixed(2)
+			spanIgual.innerText = metros.toFixed(2)
+			spanCajas.innerText = cajas
+			if( cajas == 1) ese.innerText = ''
+			else ese.innerText ='s'
+		}
+
+		txtMultiplica.addEventListener('change', calcular )
+		txtMultiplica.addEventListener('keyup', calcular )
+		input.addEventListener('change', calcularRetro )
+		input.addEventListener('keyup', calcularRetro )
+
+    calcular()
+	});
+
+	</script>
+	<style>
+	#txtMultiplica{
+	width: 200px;
+	}
+	</style>
